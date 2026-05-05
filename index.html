@@ -207,7 +207,7 @@ body{background:#08080A;color:#EDEAE3;font-family:'DM Sans',sans-serif;font-size
   <div class="hero-badge" id="hbadge"><span class="badge-dot"></span>🇫🇷 Premier outil de repurpose 100% francophone</div>
   <h1 class="hero-h" id="hh">1 vidéo YouTube.<br><em>15 contenus</em> prêts<br>à publier.</h1>
   <p class="hero-sub" id="hsub">Transformez vos podcasts et vidéos en posts LinkedIn, threads Twitter et scripts TikTok — calibrés pour le marché français. En 5 minutes, pas 5 heures.</p>
-  <form class="hero-form" id="hero-form" onsubmit="submit(event,'hs')">
+  <form class="hero-form" id="hero-form" onsubmit="handleForm(event,'hs')">
     <input type="email" class="hero-input" placeholder="votre@email.com" required autocomplete="email"/>
     <button type="submit" class="btn-primary">Rejoindre →</button>
   </form>
@@ -471,7 +471,7 @@ function setMode(mode,btn){
 
 // Form submit
 var SCRIPT_URL='COLLE_TON_URL_ICI';
-function submit(e,sid){
+function handleForm(e,sid){
   e.preventDefault();
   var form=e.target,email=form.querySelector('input[type=email]').value.trim(),
       btn=form.querySelector('button[type=submit]'),succ=document.getElementById(sid);
