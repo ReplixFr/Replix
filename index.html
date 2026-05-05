@@ -151,7 +151,7 @@ body{background:#08080A;color:#EDEAE3;font-family:'DM Sans',sans-serif;font-size
 .final-sub{font-size:18px;color:#8A8A96;margin-bottom:48px;font-weight:300}
 .final-form{display:flex;gap:10px;max-width:440px;margin:0 auto 16px}
 .final-note{font-size:13px;color:#44444E;font-weight:300}
-.success-msg{display:none;align-items:center;justify-content:center;gap:10px;color:#F0A500;font-size:15px;font-weight:500;animation:fadeUp .4s ease}
+.success-msg{display:none;align-items:center;justify-content:center;gap:10px;color:#F0A500;font-size:18px;font-weight:600;background:rgba(240,165,0,.1);border:1px solid rgba(240,165,0,.3);padding:16px 28px;border-radius:12px;animation:fadeUp .4s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
 /* FOOTER */
@@ -211,7 +211,7 @@ body{background:#08080A;color:#EDEAE3;font-family:'DM Sans',sans-serif;font-size
     <input type="email" class="hero-input" placeholder="votre@email.com" required autocomplete="email"/>
     <button type="submit" class="btn-primary">Rejoindre →</button>
   </form>
-  <div class="success-msg" id="hs">✓ Parfait ! Tu seras parmi les premiers avertis.</div>
+  <div class="success-msg" id="hs">🎉 Vous êtes bien inscrit(e) sur la waitlist Replix !</div>
   <div class="hero-proof" id="hproof">
     <div class="avatars"><div class="av">JL</div><div class="av">MR</div><div class="av">AS</div><div class="av">CB</div></div>
     <span>Déjà <strong style="color:#EDEAE3">47 créateurs</strong> sur la waitlist</span>
@@ -376,11 +376,11 @@ body{background:#08080A;color:#EDEAE3;font-family:'DM Sans',sans-serif;font-size
   <div class="final-glow"></div>
   <h2 class="final-h rev">Arrêtez de perdre<br><em>5 heures par semaine.</em></h2>
   <p class="final-sub rev">Rejoignez les créateurs qui transforment 1 vidéo en 15 contenus.</p>
-  <form class="final-form rev" id="final-form" onsubmit="submit(event,'fs')">
+  <form class="final-form rev" id="final-form" onsubmit="handleForm(event,'fs')">
     <input type="email" class="hero-input" placeholder="votre@email.com" required autocomplete="email"/>
     <button type="submit" class="btn-primary">Rejoindre →</button>
   </form>
-  <div class="success-msg" id="fs">✓ Bienvenue dans l'aventure Replix !</div>
+  <div class="success-msg" id="fs">🎉 Vous êtes bien inscrit(e) sur la waitlist Replix !</div>
   <p class="final-note rev">Aucune CB · Essai gratuit 7 jours · Annulation immédiate</p>
 </div>
 
@@ -477,8 +477,8 @@ function handleForm(e,sid){
       btn=form.querySelector('button[type=submit]'),succ=document.getElementById(sid);
   btn.textContent='...';btn.disabled=true;
   var done=function(){
-    form.style.opacity='0';
-    setTimeout(function(){form.style.display='none';succ.style.display='flex';},300);
+    form.style.display='none';
+    succ.style.display='flex';
   };
   if(SCRIPT_URL!=='COLLE_TON_URL_ICI'){
     fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})})
