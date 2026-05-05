@@ -51,7 +51,7 @@ body::before {
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.045'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: 9000;
+  z-index: -1;
   opacity: 0.5;
 }
 
@@ -66,6 +66,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid transparent;
+  z-index: 9999;
   transition: background 300ms var(--ease-snappy), border-color 300ms var(--ease-snappy);
 }
 nav.scrolled {
@@ -585,10 +586,10 @@ nav.scrolled {
 <nav id="nav">
   <a href="#hero" class="logo">Repli<span>x</span></a>
   <div class="nav-links">
-    <a href="#how" class="nav-link">Comment ça marche</a>
-    <a href="#pricing" class="nav-link">Tarifs</a>
-    <a href="#faq" class="nav-link">FAQ</a>
-    <a href="#waitlist" class="btn-primary" style="padding:10px 20px;font-size:13px;">Rejoindre la waitlist →</a>
+    <a onclick="scrollToSection('how')" class="nav-link" style="cursor:pointer;">Comment ça marche</a>
+    <a onclick="scrollToSection('pricing')" class="nav-link" style="cursor:pointer;">Tarifs</a>
+    <a onclick="scrollToSection('faq')" class="nav-link" style="cursor:pointer;">FAQ</a>
+    <a onclick="scrollToSection('waitlist')" class="btn-primary" style="padding:10px 20px;font-size:13px;cursor:pointer;">Rejoindre la waitlist →</a>
   </div>
 </nav>
 
@@ -942,6 +943,15 @@ nav.scrolled {
 </footer>
 
 <script>
+  /* ── SCROLL TO SECTION ── */
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const offset = 72;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  }
+
   /* ── NAV SCROLL ── */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
