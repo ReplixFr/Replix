@@ -207,11 +207,7 @@ body{background:#08080A;color:#EDEAE3;font-family:'DM Sans',sans-serif;font-size
   <div class="hero-badge" id="hbadge"><span class="badge-dot"></span>🇫🇷 Premier outil de repurpose 100% francophone</div>
   <h1 class="hero-h" id="hh">1 vidéo YouTube.<br><em>15 contenus</em> prêts<br>à publier.</h1>
   <p class="hero-sub" id="hsub">Transformez vos podcasts et vidéos en posts LinkedIn, threads Twitter et scripts TikTok — calibrés pour le marché français. En 5 minutes, pas 5 heures.</p>
-  <form class="hero-form" id="hero-form" onsubmit="handleForm(event,'hs')">
-    <input type="email" class="hero-input" placeholder="votre@email.com" required autocomplete="email"/>
-    <button type="submit" class="btn-primary">Rejoindre →</button>
-  </form>
-  <div class="success-msg" id="hs">🎉 Vous êtes bien inscrit(e) sur la waitlist Replix !</div>
+  <button class="btn-primary" data-tally-open="jaGpM6" data-tally-emoji-text="🎉" data-tally-emoji-animation="wave" style="padding:14px 32px;font-size:16px;">Rejoindre la waitlist →</button>
   <div class="hero-proof" id="hproof">
     <div class="avatars"><div class="av">JL</div><div class="av">MR</div><div class="av">AS</div><div class="av">CB</div></div>
     <span>Déjà <strong style="color:#EDEAE3">47 créateurs</strong> sur la waitlist</span>
@@ -376,11 +372,7 @@ body{background:#08080A;color:#EDEAE3;font-family:'DM Sans',sans-serif;font-size
   <div class="final-glow"></div>
   <h2 class="final-h rev">Arrêtez de perdre<br><em>5 heures par semaine.</em></h2>
   <p class="final-sub rev">Rejoignez les créateurs qui transforment 1 vidéo en 15 contenus.</p>
-  <form class="final-form rev" id="final-form" onsubmit="handleForm(event,'fs')">
-    <input type="email" class="hero-input" placeholder="votre@email.com" required autocomplete="email"/>
-    <button type="submit" class="btn-primary">Rejoindre →</button>
-  </form>
-  <div class="success-msg" id="fs">🎉 Vous êtes bien inscrit(e) sur la waitlist Replix !</div>
+  <button class="btn-primary rev" data-tally-open="jaGpM6" data-tally-emoji-text="🎉" data-tally-emoji-animation="wave" style="padding:14px 32px;font-size:16px;">Rejoindre la waitlist →</button>
   <p class="final-note rev">Aucune CB · Essai gratuit 7 jours · Annulation immédiate</p>
 </div>
 
@@ -470,7 +462,7 @@ function setMode(mode,btn){
 }
 
 // Form submit
-var SCRIPT_URL='https://script.google.com/macros/s/AKfycbzRv9rsrUJwg_4wrm-nyjtu-YaYWD2qDOQGSUrUzyP0ZJrGNQdo4SdIq7gcM4o_ym1D/exec';
+var SCRIPT_URL='COLLE_TON_URL_ICI';
 function handleForm(e,sid){
   e.preventDefault();
   var form=e.target,email=form.querySelector('input[type=email]').value.trim(),
@@ -486,5 +478,6 @@ function handleForm(e,sid){
   } else { done(); }
 }
 </script>
+<script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
